@@ -1,0 +1,10 @@
+<h1> New Post </h1>
+
+<%= form_tag("/posts/", method: "post") do %>
+  <%= label_tag(:title, "Title: ") %><br />
+  <%= text_field_tag(:title) %><br /><br />
+  <%= label_tag(:body, "Body:") %><br />
+  <%= text_area_tag(:body, nil, size: "45x6") %><br /><br />
+
+  <%= submit_tag("Create new post") %>
+<% end %>

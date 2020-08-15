@@ -1,15 +1,18 @@
-<h1>Index</h1>
+<h1>Welcome to the Club</h1>
 
 <% @posts.each do |post| %>
-  <%= post.title %>
+  <h4><%= post.title %></h4>
+  <p><%= post.body %></p>
   <% if user_signed_in? %>
-    <%= post.user.email %>
+    <p>Author: <%= post.user.email %></p>
   <% end %>
   <br>
 <% end %>
 
 <% if !user_signed_in? %>
   <%= link_to "Sign in", new_user_session_path %>
+  <%= link_to "Sign up", new_user_registration_path %>
 <% else %>
+  <%= link_to "New post", new_post_path %>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 <% end %>
